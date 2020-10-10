@@ -31,6 +31,8 @@ print("#####q3#####".PHP_EOL);
 
 $numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9];
 
+
+
 $count = 0;
 foreach($numbers as $number){
    if($number === 3){
