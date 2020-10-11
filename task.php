@@ -36,7 +36,8 @@ $numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9];
 $count = 0;
 foreach($numbers as $number){
   if($number === 3){
-    $count = $count + 1;
+    //$count = $count + 1;
+    $count++;
   }
 }
   echo "3は".$count."個あります";
@@ -53,7 +54,10 @@ $sports = ["サッカー", "フットサル", null, "野球", "バスケ", null,
 
   # 以下に回答を記載
   
-unset($sports[2], $sports[5]);
+//unset($sports[2], $sports[5]);
+//print_r($sports);
+
+$sports = array_diff($sports, [null]);
 print_r($sports);
 
 
@@ -70,21 +74,38 @@ $array2 = [1, 5, 8, 10];
 
   # 以下に回答を記載
 
-  var_dump (empty($array1));
+  //var_dump 
+  var_export (empty($array1));
 
-  var_dump (empty($array2));
+  echo PHP_EOL;
+
+  //var_dump 
+  var_export (empty($array2));
 
 
 echo PHP_EOL;
+
+
+
 
 
 
 print("#####q6#####".PHP_EOL);
 $numbers1 = [1, 2, 3, 4, 5];
 
-  # 以下に回答を記載
+  # 以下に回答を記載   ----------------回答参照しました------------------
+
+  $numbers2 = [];
+  foreach($numbers1 as $number){
+    $number = $number * 10;
+    array_push($numbers2, $number);
+  }
+  print_r($numbers2);
 
 echo PHP_EOL;
+
+
+
 
 
 
@@ -92,8 +113,22 @@ print("#####q7#####".PHP_EOL);
 $array = ["1", "2", "3", "4", "5"];
 
   # 以下に回答を記載
+  
+  $array2 = [];
+  foreach($array as $change){
+    $array2[] = (int)$change;
+  }
+  var_dump($array2);
+
+  //他の方法
+  //$array2 = array_map('intval', $array);
+  //var_dump($array2);
+  
 
 echo PHP_EOL;
+
+
+
 
 
 
@@ -101,6 +136,10 @@ print("#####q8#####".PHP_EOL);
 $programming_languages = ["php","ruby","python","javascript"];
 
   # 以下に回答を記載
+
+  $programming_languages = array_map('ucfirst', $programming_languages);
+
+  $upper_case_programming_languages = array_map('strtoupper', $programming_languages);
 
   # 以下は変更しないで下さい
 print_r($programming_languages);
@@ -111,12 +150,27 @@ echo PHP_EOL;
 
 
 
+
+
+
 print("#####q9#####".PHP_EOL);
 $names = ["田中", "佐藤", "佐々木", "高橋"];
 
   # 以下に回答を記載
+$number = 0;
+$names2 = [];
+  foreach($names as $name){
+    $number++;
+    $name = "会員NO.".$number." ".$name;
+    array_push($names2, $name);
+  }
+
+  print_r($names2);
+
 
 echo PHP_EOL;
+
+
 
 
 
@@ -125,7 +179,20 @@ $foods = ["いか","たこ","うに","しゃけ","うにぎり","うに軍艦","
 
   # 以下に回答を記載
 
+foreach($foods as $food){
+
+  if(preg_match("/うに/", $food)){
+    echo "好物です\n";
+  }else{
+    echo "まぁまぁ好きです\n";
+  }
+}
+
 echo PHP_EOL;
+
+
+
+
 
 
 
@@ -134,7 +201,12 @@ $sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"],
 
   # 以下に回答を記載
 
+
+
 echo PHP_EOL;
+
+
+
 
 
 
