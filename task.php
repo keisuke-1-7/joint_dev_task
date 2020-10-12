@@ -225,7 +225,7 @@ $sports2 = [];
   print("ユーザの趣味一覧" .PHP_EOL);
   foreach($sports3 as $sport){ 
     //上で$sports3にarray_pushしてるのに、なぜここでforeachを入れるのかわからない
-    print($sport.PHP_EOL);
+    print($sport.PHP_EOL);  //※「print」としての出力をforeachしている（一つずつ取り出す）
   }
 
 echo PHP_EOL;
@@ -275,10 +275,12 @@ $data = [ "name" => "satou", "age" => 33, "address" => "saitama", "hobby" => "so
 
   # 以下に回答を記載
 
-  $data_index = array_keys($data);
+  //$data_index = array_keys($data);
 
-  print_r($data_index);
+  //print_r($data_index);
 
+  $data2 = array_values($data);
+  print_r($data2);
 
 
 echo PHP_EOL;
