@@ -199,9 +199,34 @@ echo PHP_EOL;
 print("#####q11#####".PHP_EOL);
 $sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]];
 
-  # 以下に回答を記載
+  # 以下に回答を記載     ----------------回答参照しました------------------
 
 
+$sports2 = [];
+  foreach($sports as $sport){
+    if(is_array($sport)){
+      $sports2 = array_merge($sports2, $sport);
+    }else{
+      array_push($sports2, $sport);
+    }
+  }
+  //ここまでで全ての要素をまとめた配列$sports2を作成
+
+  $sports2 = array_unique($sports2);//重複を削除
+  $sports2 = array_values($sports2);//インデックス番号のふり直し作業？
+
+  $sports3 = [];
+  foreach($sports2 as $key=>$sport){
+    $number = $key + 1;
+    $sport3 = "NO".$number. " ".$sport;
+    array_push($sports3, $sport3);
+  }
+
+  print("ユーザの趣味一覧" .PHP_EOL);
+  foreach($sports3 as $sport){ 
+    //上で$sports3にarray_pushしてるのに、なぜここでforeachを入れるのかわからない
+    print($sport.PHP_EOL);
+  }
 
 echo PHP_EOL;
 
@@ -215,7 +240,15 @@ $data = [ "user" => [ "name" => "satou", "age" => 33 ] ];
 
   # 以下に回答を記載
 
+  $data_name = array_column($data, 'name');
+
+  print_r($data_name);
+
+
 echo PHP_EOL;
+
+
+
 
 
 
@@ -225,7 +258,15 @@ $update_data = [ "age" => 32, "address" => "沖縄" ];
 
   # 以下に回答を記載
 
+  $update_user_data = array_merge($user_data, $update_data);
+
+  print_r($update_user_data);
+
 echo PHP_EOL;
+
+
+
+
 
 
 
@@ -234,7 +275,17 @@ $data = [ "name" => "satou", "age" => 33, "address" => "saitama", "hobby" => "so
 
   # 以下に回答を記載
 
+  $data_index = array_keys($data);
+
+  print_r($data_index);
+
+
+
 echo PHP_EOL;
+
+
+
+
 
 
 
@@ -244,7 +295,28 @@ $data2 = [ "name" => "yamada", "hobby" => "baseball", "role" => "normal" ];
 
   # 以下に回答を記載
 
+  $data1_keys = array_keys($data1);
+  $key1 = in_array('age', $data1_keys);
+  if($key1){
+    echo "OK";
+  }else{
+    echo "NG";
+  }
+
+  echo PHP_EOL;
+
+  $data2_keys = array_keys($data2);
+  $key2 = in_array('age', $data2_keys);
+  if($key2){
+    echo "OK";
+  }else{
+    echo "NG";
+  }
+
 echo PHP_EOL;
+
+
+
 
 
 
@@ -257,6 +329,15 @@ $users = [
 ];
 
   # 以下に回答を記載
+
+  $user_info_list = [];
+  foreach($users as $user){
+    $user_info = "私の名前は".$user["name"]."です。"."年齢は".$user["age"]."歳です。" ;
+    array_push($user_info_list, $user_info);
+  }
+
+  print_r($user_info_list);
+
 
 echo PHP_EOL;
 
