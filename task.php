@@ -12,6 +12,9 @@ print_r($names);
 
 echo PHP_EOL;
 
+
+
+
 print("#####q2#####".PHP_EOL);
 $array1 = ["dog", "cat", "fish"];
 $array2 = ["bird", "bat", "tiger"];
@@ -345,11 +348,28 @@ echo PHP_EOL;
 
 
 
+
+
+
+
 print("#####q17#####".PHP_EOL);
 class User
 {
+    public $name; //プロパティを定義
+    public $age; //プロパティを定義
+    public $gender; //プロパティを定義
 
-  # コードを追加
+    function __construct($name, $age, $gender){
+      $this->name = $name; 
+      $this->age = $age;
+      $this->gender = $gender;
+    }
+
+    function info(){
+        print("名前:".$this->name.PHP_EOL);
+        print("年齢:".$this->age.PHP_EOL);
+        print("性別:".$this->gender.PHP_EOL);
+    }
 
 }
 
@@ -362,9 +382,33 @@ $user2->info();
 
 echo PHP_EOL;
 
+
+
+
+
+
+
 print("#####q18#####".PHP_EOL);
 
-  # コードを追加
+class Man{
+  
+  private $name;
+  private $age;
+
+  public function __construct($name, $age){
+    $this->name = $name;
+    $this->age = $age;
+  }
+
+  public function introduce(){
+    if($this->age === 32){
+      print("こんにちは，".$this->name."と申します。宜しくお願いいたします。".PHP_EOL);
+    }elseif($this->age === 10){
+      print("はいさいまいど〜，".$this->name."です！！！");
+    }
+  }
+
+}
 
 $man1 = new Man("あじー",32);
 $man2 = new Man("ゆたぼん",10);
@@ -374,11 +418,19 @@ $man2->introduce();
 
 echo PHP_EOL;
 
+
+
+
+
+
+
+
 print("#####q19#####".PHP_EOL);
 class Item{
   # 以下を修正して下さい
 
-  protected $name;
+  //protected $name;
+  public $name; //修正後
 
   function __construct($book_name){
     $this->name = $book_name;
@@ -390,6 +442,13 @@ $book = new Item("ゼロ秒思考");
 print($book->name.PHP_EOL);
 
 echo PHP_EOL;
+
+
+
+
+
+
+
 
 print("#####q20#####".PHP_EOL);
 class Human
