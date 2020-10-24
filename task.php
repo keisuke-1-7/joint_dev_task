@@ -510,7 +510,7 @@ echo PHP_EOL;
 
 
 
-print("#####q20#####".PHP_EOL);
+print("#####q21#####".PHP_EOL);
 for($i=1; $i<31; $i++){
   if($i%3===0 && $i%5===0 && $i%7===0){
     echo "FizzBuzzHoge";
